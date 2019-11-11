@@ -1,4 +1,4 @@
-,time,event,event_key,data1,data2
+,number,time,duration,screen_x,screen_y
 0,1,344,120,197,205
 1,2,2377,419,12,546
 2,3,2816,180,2,550
