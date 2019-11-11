@@ -90,7 +90,7 @@ def main():
     percent = 0
     #general graph
     num=0
-    for participant in participantList1:
+    for participant in participantList2:
         num+=1
         data = pd.read_csv(participant+"/"+participant+".graphFXD.csv",na_values = ['no_info','.'])
         for i in range (len(data)):
