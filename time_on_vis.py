@@ -57,7 +57,7 @@ def main():
             percent=0
         else:
             percent = vis/total
-        eg.append([num,percent])
+        gt.append([num,percent])
         
 
     
