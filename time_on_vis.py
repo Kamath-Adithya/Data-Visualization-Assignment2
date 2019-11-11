@@ -39,27 +39,33 @@ def main():
         participantList2.append("p"+str(i))
         i+=2
     
+    #genreal tree
+    num=0
     vis = 0
     total = 0
     percent = 0
-    
-    #genreal tree
-    num=0
     for participant in participantList1:
         num+=1
+        vis = 0
+        total = 0
         data = pd.read_csv(participant+"/"+participant+".treeFXD.csv",na_values = ['no_info','.'])
         for i in range (len(data)):
             if data['screen_y'][i]>400:
                 vis+=data['duration'][i]
             total +=data['duration'][i]
-        percent = vis/total
-        gt.append([num,percent])
+        if(vis==0 or total==0):
+            percent=0
+        else:
+            percent = vis/total
+        eg.append([num,percent])
         
+
+    
+    #expert graph
+    num=0
     vis = 0
     total = 0
     percent = 0
-    #expert graph
-    num=0
     for participant in participantList1:
         num+=1
         data = pd.read_csv(participant+"/"+participant+".graphFXD.csv",na_values = ['no_info','.'])
@@ -69,14 +75,18 @@ def main():
             total +=data['duration'][i]
         percent = vis/total
         eg.append([num,percent])
+        vis = 0
+        total = 0
         
+    
+    #expert tree
+    num=0
     vis = 0
     total = 0
     percent = 0
-    #expert tree
-    num=0
     for participant in participantList2:
         num+=1
+
         data = pd.read_csv(participant+"/"+participant+".treeFXD.csv",na_values = ['no_info','.'])
         for i in range (len(data)):
             if data['screen_y'][i]>400:
@@ -84,12 +94,16 @@ def main():
             total +=data['duration'][i]
         percent = vis/total
         et.append([num,percent])
+        vis = 0
+        total = 0
+        percent = 0
         
+    
+    #general graph
+    num=0
     vis = 0
     total = 0
     percent = 0
-    #general graph
-    num=0
     for participant in participantList2:
         num+=1
         data = pd.read_csv(participant+"/"+participant+".graphFXD.csv",na_values = ['no_info','.'])
@@ -99,6 +113,9 @@ def main():
             total +=data['duration'][i]
         percent = vis/total
         gg.append([num,percent])
+        vis = 0
+        total = 0
+        percent = 0
     
     writecsv(gg,"gg")
     writecsv(eg,"eg")
