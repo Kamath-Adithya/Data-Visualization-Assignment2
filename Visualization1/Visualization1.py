@@ -42,7 +42,7 @@ fig_dict = {
 
 fig_dict["layout"] = {"title" : "<b>Percent fixation per participant</b>"}
 fig_dict["layout"]["xaxis"] = {"range": [0, 17], "title": "Participants"}
-fig_dict["layout"]["yaxis"] = {"range": [20,100], "title": "Percentage Fixation %"}
+fig_dict["layout"]["yaxis"] = {"range": [0,100], "title": "Percentage Fixation %"}
 
 #make data
 data_dict1 = {
